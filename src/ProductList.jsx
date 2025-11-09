@@ -260,7 +260,7 @@ function ProductList({ onHomeClick }) {
                         <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
                         <a href="/" onClick={(e) => handleHomeClick(e)}>
                             <div>
-                                <h3 style={{ color: 'white' }}>Paradise Nursery</h3>
+                                <h3 style={{ color: 'white' }}>Green Nursery</h3>
                                 <i style={{ color: 'white' }}>Where Green Meets Serenity</i>
                             </div>
                         </a>
@@ -274,7 +274,23 @@ function ProductList({ onHomeClick }) {
             </div>
             {!showCart ? (
                 <div className="product-grid">
-
+                    {plantsArray.map((element,index) => (
+                        <div>
+                            <h2 className="product-category" >{element.category}</h2>
+                            <section className="product-list">
+                                    {element.plants.map((ele,i) => (
+                                        <div className="product-card">
+                                            <img src={ele.image} alt="Plant Name" className="product-image" />
+                                            <h3 className="product-title">{ele.name}</h3>
+                                            <p className="product-description">{ele.description}</p>
+                                            <p className="product-price">{ele.cost}</p>
+                                            <button className='product-button'>Add to cart</button>
+                                        </div>
+                                    ))}
+                            </section>
+                        </div>
+                    ))
+                    }
 
                 </div>
             ) : (

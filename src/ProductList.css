@@ -47,6 +47,9 @@ body {
     align-items: center;
     justify-content: center;
 }
+.product-category{
+    text-align: center;
+}
 .product-list {
     display: flex;
     flex-wrap: wrap;
@@ -249,4 +252,5 @@ body {
       .ul div {
         text-align: center; /* Align text to the center */
       }
+  
   }
