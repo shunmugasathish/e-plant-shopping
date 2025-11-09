@@ -16,15 +16,19 @@ const CartItem = ({ onContinueShopping,removeAddedToCartItem }) => {
   };
 
   const handleIncrement = (item) => {
+    dispatch(updateQuantity({name:item.name,quantity:item.quantity +1}));
   };
 
   const handleDecrement = (item) => {
-   
+    let quantity = item.quantity > 0 ?item.quantity-1:0;
+    dispatch(updateQuantity({name:item.name,quantity:quantity}));
+    if(quantity === 0){
+        handleRemove(item);
+    }
   };
-
-  const onCheckout = () => {
-    alert("Thanks for purchasing, Hope you see you soon");
-  }
+  const handleCheckoutShopping = (e) => {
+    alert('Thanks for purchasing, we hope see you soon');
+  };
 
   const handleRemove = (item) => {
     dispatch(removeItem(item));
@@ -61,7 +65,7 @@ const CartItem = ({ onContinueShopping,removeAddedToCartItem }) => {
       <div className="continue_shopping_btn">
         <button className="get-started-button" onClick={(e) => onContinueShopping(e)}>Continue Shopping</button>
         <br />
-        <button className="get-started-button1" onclick={onCheckout()}>Checkout</button>
+        <button className="get-started-button1" onClick={handleCheckoutShopping}>Checkout</button>
       </div>
     </div>
   );
