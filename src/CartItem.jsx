@@ -30,7 +30,7 @@ const CartItem = ({ onContinueShopping,removeAddedToCartItem,updateDecrementalCa
     }
   };
   const handleCheckoutShopping = (e) => {
-    alert('Thanks for purchasing, we hope see you soon');
+    alert('Thanks for purchasing, we hope see you soon !');
   };
 
   const handleRemove = (item) => {
